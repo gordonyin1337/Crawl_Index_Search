@@ -3,8 +3,7 @@ import urllib.error
 import urllib.parse
 import urllib.robotparser
 from bs4 import BeautifulSoup
-import string
-
+import requests
 
 class Link:
 
@@ -52,3 +51,4 @@ def create_url(url):
         fixed_url = urllib.parse.urljoin(url, fixed_path)
     finally:
         return fixed_url
+

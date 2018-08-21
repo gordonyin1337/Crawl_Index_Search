@@ -6,11 +6,10 @@ import urllib.parse
 import urllib.robotparser
 import re
 from bs4 import BeautifulSoup
-from collections import namedtuple
 import json
-import lxml
 import time
-import os
+import requests
+import os.path
 
 #TODO
 
@@ -42,7 +41,11 @@ class Downloader:
         return
 
     def write_to_file(self, link_object):
-        file_object = open("Pages/" + str(self.counter), 'w')
+        parse_info = urllib.parse.urlparse(self.initial_url)
+        folder_path = "./Sites/" + parse_info.hostname
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+        file_object = open(folder_path + '/' + str(self.counter), 'w')
         file_object.write(str(link_object.html_data))
         file_object.close()
         self.bookkeeping_data[self.counter] = str(link_object.index_data[0]) + ";" + str(link_object.index_data[1])
@@ -75,7 +78,8 @@ class Downloader:
         return
 
     def build_json(self):
-        filepath = "Pages//bookkeeping.json"
+        parse_info = urllib.parse.urlparse(self.initial_url)
+        filepath = "./Sites/" + parse_info.hostname
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(self.bookkeeping_data, f)
 
@@ -90,7 +94,7 @@ class Downloader:
                 self.robot_exists()
                 self.add_links_to_queue(initial_link)
                 self.write_to_file(initial_link)
-                print("Done")
+                print("Done! Beginning Crawl...")
         except urllib.error.HTTPError:
             print("Link Error!")
 
@@ -101,7 +105,6 @@ class Downloader:
                 new_url = self.unprocessed_links.get()
                 new_link = Link(new_url)
                 initial_domain = urllib.parse.urlparse(self.initial_url).hostname
-                print(initial_domain)
                 if is_valid(new_url, initial_domain.strip("www.")) and self.check_robot(new_url) \
                         and new_link.get_url_info().path not in self.visited:
                     time.sleep(self.crawl_delay)
@@ -162,6 +165,8 @@ def is_valid(url, domain=None):
         return False
     elif parsed_info.fragment != '':
         return False
+    elif check_request_code(url) > 400:
+        return False
     try:
         return not re.match(".*\.(css|js|bmp|gif|jpe?g|ico" + "|png|tiff?|mid|mp2|mp3|mp4" \
                  + "|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf" \
@@ -172,6 +177,17 @@ def is_valid(url, domain=None):
         return False
 
 
+def check_request_code(url):
+    r = requests.head(url)
+    return r.status_code
+
+
 if __name__ == "__main__":
-    downloader = Downloader("http://www.asldkjfbn.com")
-    downloader.run_downloader(10000)
+    url = input("URL to crawl: ")
+    if not url.startswith("http://") or not url.startswith("https://"):
+        url = "http://" + url
+    limit = input("Crawl limit (max=10000): ")
+    if int(limit) > 10000:
+        limit = 10000
+    downloader = Downloader(url)
+    downloader.run_downloader(int(limit))
