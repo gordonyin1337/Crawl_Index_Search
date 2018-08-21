@@ -36,20 +36,11 @@
       <file leaf-file-name="Downloader.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Downloader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+            <state relative-caret-position="391">
+              <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bookkeeping.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pages/bookkeeping.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="6" selection-start-column="6" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -198,7 +189,7 @@
   </component>
   <component name="RunManager" selected="Python.Downloader">
     <configuration name="Downloader" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="WebCrawler" />
+      <module name="Summer Project 1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -217,7 +208,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Link" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="WebCrawler" />
+      <module name="Summer Project 1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -236,7 +227,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="inverted_index_script" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="WebCrawler" />
+      <module name="Summer Project 1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -255,7 +246,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="search" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="WebCrawler" />
+      <module name="Summer Project 1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -274,7 +265,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="tfidf_script" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="WebCrawler" />
+      <module name="Summer Project 1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -324,7 +315,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="13" show_stripe_button="false" sideWeight="0.14166667" side_tool="true" weight="0.2794899" />
@@ -832,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Downloader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        <state relative-caret-position="391">
+          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
