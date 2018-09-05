@@ -1,5 +1,5 @@
 import math
-import tokenizer
+from Indexer import tokenizer
 import sqlite3
 
 

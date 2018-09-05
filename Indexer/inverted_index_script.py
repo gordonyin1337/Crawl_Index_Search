@@ -1,7 +1,6 @@
-import tokenizer
+from Indexer import tokenizer, tfidf_script
 import sqlite3
 import math
-import tfidf_script
 
 
 def build_database():

@@ -1,7 +1,7 @@
 import sqlite3
 import json
 from nltk.corpus import stopwords
-import tokenizer
+from Indexer import tokenizer
 from collections import defaultdict
 from scipy import spatial
 import string
