@@ -49,7 +49,3 @@ def run_idf_script():
     conn.commit()
     conn.close()
     print ("Done!")
-
-
-if __name__ == '__main__':
-    run_idf_script()
