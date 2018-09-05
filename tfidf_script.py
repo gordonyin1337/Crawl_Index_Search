@@ -26,11 +26,11 @@ def update_frequency_dict(tokens, fr_dict):
             fr_dict[token] += 1
 
 
-def run_idf_script():
+def run_idf_script(bookkeeping):
     conn = sqlite3.connect("idfs.db")
     cursor = conn.cursor()
     cursor.execute("CREATE TABLE idfs (term text, idf real)")
-    filepaths = tokenizer.get_filepaths(BOOKKEEPING_JSON)
+    filepaths = tokenizer.get_filepaths(bookkeeping)
     print ("Finished set up, going into path loop")
     counter = 0
     for path in filepaths:

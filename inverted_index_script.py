@@ -3,8 +3,6 @@ import sqlite3
 import math
 import tfidf_script
 
-BOOKKEEPING = "C:/Users/Gordon Yin/PycharmProjects/WebCrawler/Pages/bookkeeping.json"
-
 
 def build_database():
     connection = sqlite3.connect("InvertedIndex.db")
@@ -32,7 +30,7 @@ def add_to_dict(term, document, info, dictionary):
         dictionary[term] += term_info
 
 
-def run_inverted_index_script():
+def run_inverted_index_script(bookkeeping):
     build_database()
 
     connection = sqlite3.connect("InvertedIndex.db")
@@ -46,7 +44,7 @@ def run_inverted_index_script():
 
     found_words = dict()
 
-    file_paths = tokenizer.get_filepaths(BOOKKEEPING)
+    file_paths = tokenizer.get_filepaths(bookkeeping)
 
     print("Beginning Inverted Index Construction\n")
     print("Building Inverted Index Dictionary")
@@ -76,7 +74,8 @@ def run_inverted_index_script():
 
 
 if __name__ == '__main__':
+    bookkeeping = "./Sites" + input("Site title: ")
     print("Building IDF database")
-    tfidf_script.run_idf_script()
+    tfidf_script.run_idf_script(bookkeeping)
     print("Building Inverted Index")
-    run_inverted_index_script()
+    run_inverted_index_script(bookkeeping)
