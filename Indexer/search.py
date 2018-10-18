@@ -6,8 +6,7 @@ from collections import defaultdict
 from scipy import spatial
 import string
 
-BOOKKEEPING = "C:/Users/Gordon Yin/PycharmProjects/WebCrawler/Pages/bookkeeping.json"
-
+BOOKKEEPING = ""
 
 def retrieve_info(query, cursor):
     cursor.execute('SELECT * FROM InvertedIndex WHERE term=?', (query,))
@@ -141,6 +140,8 @@ def run_search_engine(user_input):
 
 
 if __name__ == '__main__':
+    site = input("Input website to search: ")
+    BOOKKEEPING = "../Sites/" + site
     query = input("Enter search query: ")
     print ('''\nSearch results for "%s": ''' % query)
     link_list = run_search_engine(query)
