@@ -11,8 +11,6 @@ import time
 import requests
 import os.path
 
-#TODO
-
 
 class Downloader:
     def __init__(self, initial_url):
@@ -133,16 +131,6 @@ class Downloader:
 
 def extract_next_links(link_object):
     outputLinks = []
-    '''
-    rawDataObj is an object of type UrlResponse declared at L20-30
-    datamodel/search/server_datamodel.py
-    the return of this function should be a list of urls in their absolute form
-    Validation of link via is_valid function is done later (see line 42).
-    It is not required to remove duplicates that have already been downloaded.
-    The frontier takes care of that.
-
-    Suggested library: lxml
-    '''
     soup = BeautifulSoup(link_object.html_data, 'lxml')
 
     try:
